@@ -6,12 +6,13 @@ const Sidebar = (props) => {
   const [selectedMenus, setSelectedMenus] = useState([]);
   const handleMenuSelection = (label, depth) => {
     setSelectedMenus((selectedMenus) => {
+      const newSelectedMenus = [...selectedMenus];
       // trim any menus after the depth
-      selectedMenus.length = depth;
+      newSelectedMenus.length = depth;
       if (label !== '') {
-        selectedMenus[depth] = label;
+        newSelectedMenus[depth] = label;
       }
-      return [...selectedMenus];
+      return newSelectedMenus;
     });
   };
 
