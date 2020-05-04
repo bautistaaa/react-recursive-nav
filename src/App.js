@@ -1,24 +1,77 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from './Sidebar';
+
+const links = [
+  {
+    label: 'Link',
+    path: '/link',
+  },
+  {
+    label: 'Link2',
+    path: '/link2',
+  },
+  {
+    label: 'Parent',
+    children: [
+      {
+        label: 'Child',
+        path: '/child',
+      },
+      {
+        label: 'Child2',
+        path: '/child',
+      },
+      {
+        label: 'Child3',
+        path: '/child',
+      },
+      {
+        label: 'Child4',
+        path: '/child',
+      },
+      {
+        label: 'Child5',
+        path: '/child',
+      },
+      {
+        label: 'Child with Children',
+        children: [
+          {
+            label: 'GrandChild 1',
+            path: '/c1',
+          },
+          {
+            label: 'GrandChild 2',
+            children: [
+              {
+                label: 'GreatGrandChild',
+                path: '/gc1',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Parent2',
+    children: [
+      {
+        label: 'Parent2Child',
+        path: '/child',
+      },
+      {
+        label: 'Parent2Child2',
+        path: '/child',
+      },
+    ],
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Sidebar links={links} />
     </div>
   );
 }
